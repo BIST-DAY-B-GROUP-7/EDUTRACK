@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQs</title>
+    <!-- Adding Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: black;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            padding: 20px;
+        }
+        .faq-container {
+            background-color: white;
+            color: black;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgb(255, 72, 0);
+            width: 100%;
+            max-width: 800px;
+        }
+        .faq-item {
+            margin-bottom: 20px;
+        }
+        .faq-item h4 {
+            color: rgb(255, 72, 0);
+        }
+    </style>
+</head>
+<body>
+    <div class="faq-container">
+        <h2 class="text-center">Frequently Asked Questions</h2>
+        <div class="faq-item">
+            <h4>What is EduTrack?</h4>
+            <p>EduTrack is an innovative educational platform designed to streamline and enhance the learning experience for both students and teachers.</p>
+        </div>
+        <div class="faq-item">
+            <h4>How do I register?</h4>
+            <p>You can register by clicking on the 'Register' link in the navigation bar and filling out the registration form.</p>
+        </div>
+        <div class="faq-item">
+            <h4>How can I access my course materials?</h4>
+            <p>All your course materials can be found in the 'Course Materials' section of the Student Portal.</p>
+        </div>
+        <div class="faq-item">
+            <h4>Where can I find more help?</h4>
+            <p>You can find more help by visiting our <a href="contact.html" class="text-primary">Contact and Support</a> page.</p>
+        </div>
+    </div>
+
+    <!-- Adding Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.getElementById('faqForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const question = document.getElementById('question').value;
+            const answer = document.getElementById('answer').value;
+
+            const faqContainer = document.querySelector('.faq-container');
+            const newFaqItem = document.createElement('div');
+            newFaqItem.classList.add('faq-item');
+            newFaqItem.innerHTML = `<h4>${question}</h4><p>${answer}</p>`;
+            faqContainer.insertBefore(newFaqItem, faqContainer.querySelector('h3'));
+
+            alert('Your question has been added!');
+            document.getElementById('faqForm').reset();
+        });
+    </script>
+</body>
+</html>

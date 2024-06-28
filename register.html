@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <!-- Adding Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        .form-group {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+        .form-group label, .form-group input {
+            width: 48%;
+        }
+        body {
+            background-color: black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .register-container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgb(255, 72, 0);
+            color: rgba(255, 72, 0, 0.793);
+        }
+    </style>
+</head>
+<body>
+    <div class="register-container">
+        <div class="text-center mb-4">
+            <img src="C:\Users\HP\Downloads\eduTRACK.png" alt="Logo" class="img-fluid" style="max-width: 150px;">
+        </div>
+        <h2 class="text-center">Register</h2>
+        <form id="registerForm">
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" class="form-control" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" class="form-control" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="year">Year</label>
+                <input type="text" class="form-control" id="year" name="year" required>
+            </div>
+            <div class="form-group">
+                <label for="registrationNumber">Registration Number</label>
+                <input type="text" class="form-control" id="registrationNumber" name="registrationNumber" required>
+            </div>
+            <div class="form-group">
+                <label for="studentNumber">Student Number</label>
+                <input type="text" class="form-control" id="studentNumber" name="studentNumber" required>
+            </div>
+            <div class="form-group">
+                <label for="dob">Date of Birth</label>
+                <input type="date" class="form-control" id="dob" name="dob" required>
+            </div>
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text" class="form-control" id="username" name="username" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" class="form-control" id="password" name="password" required>
+            </div>
+            <div class="form-group">
+                <label for="confirmPassword">Confirm Password</label>
+                <input type="password" class="form-control" id="confirmPassword" name="confirmPassword" required>
+            </div>
+            <script>
+                document.addEventListener('DOMContentLoaded', function() {
+                    const registerButton = document.querySelector('button[type="submit"]');
+                    const agreeCheckbox = document.getElementById('agreeCheckbox');
+
+                    agreeCheckbox.addEventListener('change', function() {
+                        registerButton.disabled = !agreeCheckbox.checked;
+                    });
+
+                    // Initially disable the register button
+                    registerButton.disabled = true;
+                });
+            </script>
+            <div class="form-group">
+                <input type="checkbox" class="form-check-input" id="agreeCheckbox" required>
+                <label class="form-check-label" for="agreeCheckbox">I agree to the <a href="termsandconditions.html" target="_blank">terms and conditions</a></label>
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">Register</button>
+        </form>
+    </div>
+
+    <!-- Adding Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.getElementById('registerForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const year = document.getElementById('year').value;
+            const registrationNumber = document.getElementById('registrationNumber').value;
+            const studentNumber = document.getElementById('studentNumber').value;
+            const dob = document.getElementById('dob').value;
+            const password = document.getElementById('password').value;
+            const confirmPassword = document.getElementById('confirmPassword').value;
+
+            if (password !== confirmPassword) {
+                alert('Passwords do not match!');
+                return;
+            }
+
+            // Here you can add your registration logic, e.g., send the data to the server
+            console.log('Name:', name);
+            console.log('Email:', email);
+            console.log('Year:', year);
+            console.log('Registration Number:', registrationNumber);
+            console.log('Student Number:', studentNumber);
+            console.log('Date of Birth:', dob);
+            console.log('Password:', password);
+            alert('Registration form submitted!');
+        });
+    </script>
+</body>
+</html>
